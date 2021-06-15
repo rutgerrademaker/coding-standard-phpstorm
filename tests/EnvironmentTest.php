@@ -1,20 +1,20 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.nl
  */
 
-namespace Mediact\CodingStandard\PhpStorm\Tests;
+namespace Youwe\CodingStandard\PhpStorm\Tests;
 
 use Composer\Composer;
 use Composer\IO\IOInterface;
-use Mediact\CodingStandard\PhpStorm\FilesystemInterface;
 use PHPUnit\Framework\TestCase;
-use Mediact\CodingStandard\PhpStorm\Environment;
+use Youwe\CodingStandard\PhpStorm\Environment;
+use Youwe\CodingStandard\PhpStorm\FilesystemInterface;
 
 /**
- * @coversDefaultClass \Mediact\CodingStandard\PhpStorm\Environment
+ * @coversDefaultClass \Youwe\CodingStandard\PhpStorm\Environment
  */
 class EnvironmentTest extends TestCase
 {

@@ -1,17 +1,16 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.nl
  */
 
 declare(strict_types=1);
 
-namespace Mediact\CodingStandard\PhpStorm\Patcher;
+namespace Youwe\CodingStandard\PhpStorm\Patcher;
 
-use Mediact\CodingStandard\PhpStorm\EnvironmentInterface;
-use Mediact\CodingStandard\PhpStorm\FilesystemInterface;
-use Mediact\CodingStandard\PhpStorm\XmlAccessorInterface;
+use Youwe\CodingStandard\PhpStorm\EnvironmentInterface;
+use Youwe\CodingStandard\PhpStorm\XmlAccessorInterface;
 
 class TemplateSettingsPatcher implements ConfigPatcherInterface
 {
@@ -25,7 +24,7 @@ class TemplateSettingsPatcher implements ConfigPatcherInterface
     /**
      * @var array
      */
-    private $includePaths = [];
+    private $includePaths;
 
     /**
      * Constructor.
@@ -34,7 +33,7 @@ class TemplateSettingsPatcher implements ConfigPatcherInterface
      */
     public function __construct(XmlAccessorInterface $xmlAccessor)
     {
-        $this->xmlAccessor  = $xmlAccessor;
+        $this->xmlAccessor = $xmlAccessor;
         $this->includePaths = [
             'M2-PHP-File-Header.php',
             'M2-Settings.php',
@@ -49,15 +48,10 @@ class TemplateSettingsPatcher implements ConfigPatcherInterface
      *
      * @return void
      */
-    public function patch(
-        EnvironmentInterface $environment
-    ): void {
-        $this->patchFileTemplateSettings(
-            $environment
-        );
-        $this->patchIncludes(
-            $environment
-        );
+    public function patch(EnvironmentInterface $environment): void
+    {
+        $this->patchFileTemplateSettings($environment);
+        $this->patchIncludes($environment);
     }
 
     /**
@@ -67,42 +61,42 @@ class TemplateSettingsPatcher implements ConfigPatcherInterface
      *
      * @return void
      */
-    public function patchFileTemplateSettings(
-        EnvironmentInterface $environment
-    ): void {
+    public function patchFileTemplateSettings(EnvironmentInterface $environment): void
+    {
         if (!$environment->getIdeConfigFilesystem()->has('file.template.settings.xml')) {
             $this->copyFile(
                 $environment->getDefaultsFilesystem(),
                 $environment->getIdeConfigFilesystem(),
                 'file.template.settings.xml'
             );
-        } else {
-            $xml = simplexml_load_string(
-                $environment->getIdeConfigFilesystem()->read('file.template.settings.xml')
-            );
+            return;
+        }
 
-            foreach ($this->getFileTemplates() as $xmlTag => $fileTemplateNames) {
-                foreach ($fileTemplateNames as $fileTemplateName) {
-                    $node = $this->xmlAccessor->getDescendant(
-                        $xml,
+        $xml = simplexml_load_string(
+            $environment->getIdeConfigFilesystem()->read('file.template.settings.xml')
+        );
+
+        foreach ($this->getFileTemplates() as $xmlTag => $fileTemplateNames) {
+            foreach ($fileTemplateNames as $fileTemplateName) {
+                $node = $this->xmlAccessor->getDescendant(
+                    $xml,
+                    [
                         [
-                            [
-                                'component',
-                                ['name' => 'ExportableFileTemplateSettings']
-                            ],
-                            [$xmlTag],
-                            ['template', ['name' => $fileTemplateName]]
-                        ]
-                    );
-                    $this->xmlAccessor->setAttributes(
-                        $node,
-                        [
-                            'reformat' => 'false',
-                            'live-template-enabled' => 'true'
-                        ]
-                    );
-                    $environment->getIdeConfigFilesystem()->put('file.template.settings.xml', $xml->asXML());
-                }
+                            'component',
+                            ['name' => 'ExportableFileTemplateSettings']
+                        ],
+                        [$xmlTag],
+                        ['template', ['name' => $fileTemplateName]]
+                    ]
+                );
+                $this->xmlAccessor->setAttributes(
+                    $node,
+                    [
+                        'reformat'              => 'false',
+                        'live-template-enabled' => 'true'
+                    ]
+                );
+                $environment->getIdeConfigFilesystem()->put('file.template.settings.xml', $xml->asXML());
             }
         }
     }
@@ -134,7 +128,7 @@ class TemplateSettingsPatcher implements ConfigPatcherInterface
     public function getFileTemplates(): array
     {
         return [
-            'default_templates' => [
+            'default_templates'  => [
                 'M2-Acl XML.xml',
                 'M2-Class.php',
                 'M2-Class-Backend-Controller',

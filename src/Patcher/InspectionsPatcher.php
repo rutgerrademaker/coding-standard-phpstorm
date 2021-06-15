@@ -1,23 +1,23 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.nl
  */
 
 declare(strict_types=1);
 
-namespace Mediact\CodingStandard\PhpStorm\Patcher;
+namespace Youwe\CodingStandard\PhpStorm\Patcher;
 
-use Mediact\CodingStandard\PhpStorm\EnvironmentInterface;
-use Mediact\CodingStandard\PhpStorm\XmlAccessorInterface;
 use SimpleXMLElement;
+use Youwe\CodingStandard\PhpStorm\EnvironmentInterface;
+use Youwe\CodingStandard\PhpStorm\XmlAccessorInterface;
 
 class InspectionsPatcher implements ConfigPatcherInterface
 {
     use CopyFilesTrait;
 
-    public const PROJECT_PHPCS      = 'phpcs.xml';
+    public const PROJECT_PHPCS = 'phpcs.xml';
     public const INSPECTION_PROFILE = 'inspectionProfiles/MediaCT.xml';
 
     /**
@@ -42,9 +42,8 @@ class InspectionsPatcher implements ConfigPatcherInterface
      *
      * @return void
      */
-    public function patch(
-        EnvironmentInterface $environment
-    ): void {
+    public function patch(EnvironmentInterface $environment): void
+    {
         $this->copyDirectory(
             $environment->getDefaultsFilesystem(),
             $environment->getIdeConfigFilesystem(),

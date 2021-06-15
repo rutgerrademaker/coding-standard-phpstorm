@@ -16,7 +16,6 @@ parameters:
     - /^phpmd.xml$/
     - /^phpunit.xml$/
     - /^pdepend.xml$/
-    - /^files/
 
   yamllint.parse_constant: true
 

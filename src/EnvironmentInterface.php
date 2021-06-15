@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.nl
  */
 
 declare(strict_types=1);
 
-namespace Mediact\CodingStandard\PhpStorm;
+namespace Youwe\CodingStandard\PhpStorm;
 
 use Composer\Composer;
 use Composer\IO\IOInterface;

@@ -1,27 +1,26 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.nl
  */
 
 declare(strict_types=1);
 
-namespace Mediact\CodingStandard\PhpStorm\Tests;
+namespace Youwe\CodingStandard\PhpStorm\Tests;
 
 use Composer\Composer;
 use Composer\Config;
 use Composer\IO\IOInterface;
 use Composer\Script\Event;
-use Mediact\CodingStandard\PhpStorm\EnvironmentInterface;
-use Mediact\CodingStandard\PhpStorm\FilesystemInterface;
-use Mediact\CodingStandard\PhpStorm\Patcher\ConfigPatcherInterface;
 use org\bovigo\vfs\vfsStream;
 use PHPUnit\Framework\TestCase;
-use Mediact\CodingStandard\PhpStorm\InstallerPlugin;
+use Youwe\CodingStandard\PhpStorm\EnvironmentInterface;
+use Youwe\CodingStandard\PhpStorm\InstallerPlugin;
+use Youwe\CodingStandard\PhpStorm\Patcher\ConfigPatcherInterface;
 
 /**
- * @coversDefaultClass \Mediact\CodingStandard\PhpStorm\InstallerPlugin
+ * @coversDefaultClass \Youwe\CodingStandard\PhpStorm\InstallerPlugin
  */
 class InstallerPluginTest extends TestCase
 {
@@ -32,8 +31,7 @@ class InstallerPluginTest extends TestCase
      */
     public function testGetSubscribedEvents()
     {
-        $this->assertInternalType(
-            'array',
+        $this->assertIsArray(
             InstallerPlugin::getSubscribedEvents()
         );
     }

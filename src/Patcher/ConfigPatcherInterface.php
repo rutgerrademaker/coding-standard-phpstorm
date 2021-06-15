@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.nl
  */
 
 declare(strict_types=1);
 
-namespace Mediact\CodingStandard\PhpStorm\Patcher;
+namespace Youwe\CodingStandard\PhpStorm\Patcher;
 
-use Mediact\CodingStandard\PhpStorm\EnvironmentInterface;
+use Youwe\CodingStandard\PhpStorm\EnvironmentInterface;
 
 interface ConfigPatcherInterface
 {
@@ -20,7 +20,5 @@ interface ConfigPatcherInterface
      *
      * @return void
      */
-    public function patch(
-        EnvironmentInterface $environment
-    ): void;
+    public function patch(EnvironmentInterface $environment): void;
 }

@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.nl
  */
 
 declare(strict_types=1);
 
-namespace Mediact\CodingStandard\PhpStorm\Patcher;
+namespace Youwe\CodingStandard\PhpStorm\Patcher;
 
-use Mediact\CodingStandard\PhpStorm\EnvironmentInterface;
-use Mediact\CodingStandard\PhpStorm\XmlAccessor;
+use Youwe\CodingStandard\PhpStorm\EnvironmentInterface;
+use Youwe\CodingStandard\PhpStorm\XmlAccessor;
 
 class ConfigPatcher implements ConfigPatcherInterface
 {
@@ -22,15 +22,13 @@ class ConfigPatcher implements ConfigPatcherInterface
     /**
      * Constructor.
      *
-     * @param array $patchers
+     * @param array|null $patchers
      */
     public function __construct(array $patchers = null)
     {
         $xmlAccessor = new XmlAccessor();
 
-        $this->patchers = $patchers !== null
-            ? $patchers
-            : [
+        $this->patchers = $patchers ?? [
                 new CodeStylePatcher(),
                 new FileTemplatesPatcher($xmlAccessor),
                 new InspectionsPatcher($xmlAccessor),
@@ -46,9 +44,8 @@ class ConfigPatcher implements ConfigPatcherInterface
      *
      * @return void
      */
-    public function patch(
-        EnvironmentInterface $environment
-    ): void {
+    public function patch(EnvironmentInterface $environment): void
+    {
         foreach ($this->patchers as $patcher) {
             $patcher->patch($environment);
         }

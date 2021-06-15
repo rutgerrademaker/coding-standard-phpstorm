@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.nl
  */
 
-namespace Mediact\CodingStandard\PhpStorm;
+namespace Youwe\CodingStandard\PhpStorm;
 
 interface FilesystemInterface
 {

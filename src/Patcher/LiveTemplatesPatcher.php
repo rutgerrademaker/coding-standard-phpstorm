@@ -1,16 +1,15 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.nl
  */
 
 declare(strict_types=1);
 
-namespace Mediact\CodingStandard\PhpStorm\Patcher;
+namespace Youwe\CodingStandard\PhpStorm\Patcher;
 
-use Mediact\CodingStandard\PhpStorm\EnvironmentInterface;
-use Mediact\CodingStandard\PhpStorm\FilesystemInterface;
+use Youwe\CodingStandard\PhpStorm\EnvironmentInterface;
 
 class LiveTemplatesPatcher implements ConfigPatcherInterface
 {
@@ -26,7 +25,7 @@ class LiveTemplatesPatcher implements ConfigPatcherInterface
     public function patch(
         EnvironmentInterface $environment
     ): void {
-        if (! empty($environment->getIdeDefaultConfigFilesystem()->getRoot())) {
+        if (!empty($environment->getIdeDefaultConfigFilesystem()->getRoot())) {
             $this->copyDirectory(
                 $environment->getDefaultsFilesystem(),
                 $environment->getIdeDefaultConfigFilesystem(),

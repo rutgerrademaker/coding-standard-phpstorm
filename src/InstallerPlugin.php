@@ -1,14 +1,13 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
- * @deprecated
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.nl
  */
 
 declare(strict_types=1);
 
-namespace Mediact\CodingStandard\PhpStorm;
+namespace Youwe\CodingStandard\PhpStorm;
 
 use Composer\Composer;
 use Composer\EventDispatcher\EventSubscriberInterface;
@@ -16,8 +15,8 @@ use Composer\IO\IOInterface;
 use Composer\Plugin\PluginInterface;
 use Composer\Script\Event;
 use Composer\Script\ScriptEvents;
-use Mediact\CodingStandard\PhpStorm\Patcher\ConfigPatcher;
-use Mediact\CodingStandard\PhpStorm\Patcher\ConfigPatcherInterface;
+use Youwe\CodingStandard\PhpStorm\Patcher\ConfigPatcher;
+use Youwe\CodingStandard\PhpStorm\Patcher\ConfigPatcherInterface;
 
 class InstallerPlugin implements PluginInterface, EventSubscriberInterface
 {
@@ -29,31 +28,29 @@ class InstallerPlugin implements PluginInterface, EventSubscriberInterface
     /**
      * Constructor.
      *
-     * @param ConfigPatcherInterface $patcher
+     * @param ConfigPatcherInterface|null $patcher
      */
     public function __construct(ConfigPatcherInterface $patcher = null)
     {
-        $this->patcher = $patcher !== null
-            ? $patcher
-            : new ConfigPatcher();
+        $this->patcher = $patcher ?? new ConfigPatcher();
     }
 
     /**
      * Apply plugin modifications to Composer
      *
-     * @param Composer    $composer
-     * @param IOInterface $inputOutput
+     * @param Composer $composer
+     * @param IOInterface $io
      *
      * @return void
      */
-    public function activate(Composer $composer, IOInterface $inputOutput): void
+    public function activate(Composer $composer, IOInterface $io): void
     {
     }
 
     /**
      * Remove any hooks from Composer.
      *
-     * @param Composer    $composer
+     * @param Composer $composer
      * @param IOInterface $io
      *
      * @return void
@@ -65,7 +62,7 @@ class InstallerPlugin implements PluginInterface, EventSubscriberInterface
     /**
      * Prepare the plugin to be uninstalled
      *
-     * @param Composer    $composer
+     * @param Composer $composer
      * @param IOInterface $io
      *
      * @return void
@@ -96,10 +93,10 @@ class InstallerPlugin implements PluginInterface, EventSubscriberInterface
      */
     public function onNewCodeEvent(Event $event): void
     {
-        $vendorDir   = $event->getComposer()->getConfig()->get('vendor-dir');
-        $projectDir  = dirname($vendorDir);
+        $vendorDir = $event->getComposer()->getConfig()->get('vendor-dir');
+        $projectDir = dirname($vendorDir);
         $phpStormDir = $projectDir . DIRECTORY_SEPARATOR . '.idea';
-        $filesDir    = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'files';
+        $filesDir = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'files';
 
         $phpStormDefaultPath = $this->getPhpStormDefaultPath();
 
@@ -129,14 +126,10 @@ class InstallerPlugin implements PluginInterface, EventSubscriberInterface
     {
         $phpStormDefaultPath = '';
 
-        if (isset($_SERVER['HOME'])) {
-            $home = $_SERVER['HOME'];
-        } else {
-            $home = getenv("HOME");
-        }
+        $home = $_SERVER['HOME'] ?? getenv('HOME');
 
         $phpStormDefaultPaths = array_reverse(glob("$home/.[pP]hp[sS]torm201*/config/"));
-        if (! empty($phpStormDefaultPaths)) {
+        if (!empty($phpStormDefaultPaths)) {
             $phpStormDefaultPath = reset($phpStormDefaultPaths);
         }
 

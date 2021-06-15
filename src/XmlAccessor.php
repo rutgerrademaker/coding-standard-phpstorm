@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.nl
  */
 
 declare(strict_types=1);
 
-namespace Mediact\CodingStandard\PhpStorm;
+namespace Youwe\CodingStandard\PhpStorm;
 
 use InvalidArgumentException;
 use SimpleXMLElement;
@@ -18,8 +18,8 @@ class XmlAccessor implements XmlAccessorInterface
      * Get a child node, create it when it does not exist.
      *
      * @param SimpleXMLElement $element
-     * @param string           $name
-     * @param array            $attributes
+     * @param string $name
+     * @param array $attributes
      *
      * @return SimpleXMLElement
      */
@@ -45,15 +45,13 @@ class XmlAccessor implements XmlAccessorInterface
      * Get a descendant, create it when it does not exist.
      *
      * @param SimpleXMLElement $element
-     * @param array            $path
+     * @param array $path
      *
      * @return SimpleXMLElement
      * @throws InvalidArgumentException When the descendant path is invalid.
      */
-    public function getDescendant(
-        SimpleXMLElement $element,
-        array $path
-    ): SimpleXMLElement {
+    public function getDescendant(SimpleXMLElement $element, array $path): SimpleXMLElement
+    {
         foreach ($path as $childProperties) {
             if (
                 !is_array($childProperties)
@@ -62,7 +60,7 @@ class XmlAccessor implements XmlAccessorInterface
                 throw new InvalidArgumentException('Invalid descendant path');
             }
 
-            $name       = array_shift($childProperties);
+            $name = array_shift($childProperties);
             $attributes = count($childProperties)
                 ? array_shift($childProperties)
                 : [];
@@ -77,14 +75,12 @@ class XmlAccessor implements XmlAccessorInterface
      * Set the attributes of a node.
      *
      * @param SimpleXMLElement $element
-     * @param array            $attributes
+     * @param array $attributes
      *
      * @return void
      */
-    public function setAttributes(
-        SimpleXMLElement $element,
-        array $attributes
-    ): void {
+    public function setAttributes(SimpleXMLElement $element, array $attributes): void
+    {
         $storage = $element->attributes();
         foreach ($attributes as $key => $value) {
             if (isset($storage->{$key})) {

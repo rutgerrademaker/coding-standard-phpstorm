@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.nl
  */
 
-namespace Mediact\CodingStandard\PhpStorm\Tests\Patcher\TestDouble;
+namespace Youwe\CodingStandard\PhpStorm\Tests\Patcher\TestDouble;
 
-use Mediact\CodingStandard\PhpStorm\EnvironmentInterface;
-use Mediact\CodingStandard\PhpStorm\Patcher\ConfigPatcherInterface;
-use Mediact\CodingStandard\PhpStorm\Patcher\CopyFilesTrait;
+use Youwe\CodingStandard\PhpStorm\EnvironmentInterface;
+use Youwe\CodingStandard\PhpStorm\Patcher\ConfigPatcherInterface;
+use Youwe\CodingStandard\PhpStorm\Patcher\CopyFilesTrait;
 
 class CopyFilesPatcherDouble implements ConfigPatcherInterface
 {

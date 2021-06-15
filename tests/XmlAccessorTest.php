@@ -1,18 +1,17 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.nl
  */
 
-namespace Mediact\CodingStandard\PhpStorm\Tests;
+namespace Youwe\CodingStandard\PhpStorm\Tests;
 
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_TestCase;
-use Mediact\CodingStandard\PhpStorm\XmlAccessor;
+use Youwe\CodingStandard\PhpStorm\XmlAccessor;
 
 /**
- * @coversDefaultClass \Mediact\CodingStandard\PhpStorm\XmlAccessor
+ * @coversDefaultClass \Youwe\CodingStandard\PhpStorm\XmlAccessor
  */
 class XmlAccessorTest extends TestCase
 {
@@ -111,12 +110,11 @@ class XmlAccessorTest extends TestCase
      *
      * @dataProvider getDescendantDataProvider
      *
-     * @expectedException \InvalidArgumentException
-     *
      * @covers ::getDescendant
      */
     public function testGetDescendantException()
     {
+        $this->expectException(\InvalidArgumentException::class);
         $accessor = new XmlAccessor();
 
         $xml = simplexml_load_string('<some_data></some_data>');

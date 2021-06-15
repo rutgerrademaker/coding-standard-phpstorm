@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.nl
  */
 
-namespace Mediact\CodingStandard\PhpStorm;
+namespace Youwe\CodingStandard\PhpStorm;
 
 use Composer\Composer;
 use Composer\IO\IOInterface;
@@ -44,8 +44,8 @@ class Environment implements EnvironmentInterface
      * @param FilesystemInterface $ideDefaultFileSystem
      * @param FilesystemInterface $defaultsFilesystem
      * @param FilesystemInterface $projectFilesystem
-     * @param IOInterface         $inputOutput
-     * @param Composer            $composer
+     * @param IOInterface $inputOutput
+     * @param Composer $composer
      */
     public function __construct(
         FilesystemInterface $ideConfigFilesystem,
@@ -55,12 +55,12 @@ class Environment implements EnvironmentInterface
         IOInterface $inputOutput,
         Composer $composer
     ) {
-        $this->ideConfigFilesystem  = $ideConfigFilesystem;
+        $this->ideConfigFilesystem = $ideConfigFilesystem;
         $this->ideDefaultFilesystem = $ideDefaultFileSystem;
-        $this->defaultsFilesystem   = $defaultsFilesystem;
-        $this->projectFilesystem    = $projectFilesystem;
-        $this->inputOutput          = $inputOutput;
-        $this->composer             = $composer;
+        $this->defaultsFilesystem = $defaultsFilesystem;
+        $this->projectFilesystem = $projectFilesystem;
+        $this->inputOutput = $inputOutput;
+        $this->composer = $composer;
     }
 
     /**

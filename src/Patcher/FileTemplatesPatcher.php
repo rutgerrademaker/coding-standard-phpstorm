@@ -1,17 +1,17 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.nl
  */
 
 declare(strict_types=1);
 
-namespace Mediact\CodingStandard\PhpStorm\Patcher;
+namespace Youwe\CodingStandard\PhpStorm\Patcher;
 
-use Mediact\CodingStandard\PhpStorm\EnvironmentInterface;
-use Mediact\CodingStandard\PhpStorm\FilesystemInterface;
-use Mediact\CodingStandard\PhpStorm\XmlAccessorInterface;
+use Youwe\CodingStandard\PhpStorm\EnvironmentInterface;
+use Youwe\CodingStandard\PhpStorm\FilesystemInterface;
+use Youwe\CodingStandard\PhpStorm\XmlAccessorInterface;
 
 class FileTemplatesPatcher implements ConfigPatcherInterface
 {
@@ -39,9 +39,8 @@ class FileTemplatesPatcher implements ConfigPatcherInterface
      *
      * @return void
      */
-    public function patch(
-        EnvironmentInterface $environment
-    ): void {
+    public function patch(EnvironmentInterface $environment): void
+    {
         $this->copyDirectory(
             $environment->getDefaultsFilesystem(),
             $environment->getIdeConfigFilesystem(),
@@ -60,9 +59,8 @@ class FileTemplatesPatcher implements ConfigPatcherInterface
      *
      * @return void
      */
-    private function patchWorkspaceConfig(
-        FilesystemInterface $ideConfigFs
-    ): void {
+    private function patchWorkspaceConfig(FilesystemInterface $ideConfigFs): void
+    {
         if (!$ideConfigFs->has('workspace.xml')) {
             return;
         }

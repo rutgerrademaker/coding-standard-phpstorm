@@ -1,17 +1,12 @@
 {
-    "name": "mediact/coding-standard-phpstorm",
-    "description": "MediaCT PHP Coding Standard PHPStorm integration",
+    "name": "youwe/coding-standard-phpstorm",
+    "description": "Youwe PHP Coding Standard PHPStorm integration",
     "type": "composer-plugin",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "MediaCT",
-            "email": "contact@mediact.nl"
-        }
-    ],
     "require": {
         "php": "^7.1",
-        "composer-plugin-api": "^1.0 || ^2.0"
+        "composer-plugin-api": "^1.0 || ^2.0",
+        "ext-simplexml": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.5",
@@ -25,16 +20,16 @@
     },
     "autoload": {
         "psr-4": {
-            "Mediact\\CodingStandard\\PhpStorm\\": "src"
+            "Youwe\\CodingStandard\\PhpStorm\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Mediact\\CodingStandard\\PhpStorm\\Tests\\": "tests"
+            "Youwe\\CodingStandard\\PhpStorm\\Tests\\": "tests"
         }
     },
     "extra": {
-        "class": "Mediact\\CodingStandard\\PhpStorm\\InstallerPlugin"
+        "class": "Youwe\\CodingStandard\\PhpStorm\\InstallerPlugin"
     },
     "archive": {
         "exclude": [

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.nl
  */
 
 declare(strict_types=1);
 
-namespace Mediact\CodingStandard\PhpStorm;
+namespace Youwe\CodingStandard\PhpStorm;
 
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -26,9 +26,9 @@ class Filesystem implements FilesystemInterface
      *
      * @param string $root
      */
-    public function __construct($root)
+    public function __construct(string $root)
     {
-        if (! empty($root)) {
+        if (!empty($root)) {
             $this->root = rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
         }
     }
