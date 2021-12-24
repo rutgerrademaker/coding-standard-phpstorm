@@ -1,18 +1,20 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.com
  */
 
-namespace Mediact\CodingStandard\PhpStorm\Tests;
+declare(strict_types=1);
+
+namespace Youwe\CodingStandard\PhpStorm\Tests;
 
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
-use Mediact\CodingStandard\PhpStorm\XmlAccessor;
+use Youwe\CodingStandard\PhpStorm\XmlAccessor;
 
 /**
- * @coversDefaultClass \Mediact\CodingStandard\PhpStorm\XmlAccessor
+ * @coversDefaultClass \Youwe\CodingStandard\PhpStorm\XmlAccessor
  */
 class XmlAccessorTest extends TestCase
 {

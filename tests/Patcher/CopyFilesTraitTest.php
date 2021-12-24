@@ -1,20 +1,22 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.com
  */
 
-namespace Mediact\CodingStandard\PhpStorm\Tests\Patcher;
+declare(strict_types=1);
 
-use Mediact\CodingStandard\PhpStorm\EnvironmentInterface;
-use Mediact\CodingStandard\PhpStorm\FilesystemInterface;
-use Mediact\CodingStandard\PhpStorm\Tests\Patcher\TestDouble\CopyFilesPatcherDouble;
+namespace Youwe\CodingStandard\PhpStorm\Tests\Patcher;
+
+use Youwe\CodingStandard\PhpStorm\EnvironmentInterface;
+use Youwe\CodingStandard\PhpStorm\FilesystemInterface;
+use Youwe\CodingStandard\PhpStorm\Tests\Patcher\TestDouble\CopyFilesPatcherDouble;
 use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_TestCase;
 
 /**
- * @coversDefaultClass \Mediact\CodingStandard\PhpStorm\Patcher\CopyFilesTrait
+ * @coversDefaultClass \Youwe\CodingStandard\PhpStorm\Patcher\CopyFilesTrait
  */
 class CopyFilesTraitTest extends TestCase
 {

@@ -1,20 +1,22 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.com
  */
 
-namespace Mediact\CodingStandard\PhpStorm\Tests\Patcher;
+declare(strict_types=1);
 
-use Mediact\CodingStandard\PhpStorm\EnvironmentInterface;
-use Mediact\CodingStandard\PhpStorm\Patcher\ConfigPatcherInterface;
+namespace Youwe\CodingStandard\PhpStorm\Tests\Patcher;
+
+use Youwe\CodingStandard\PhpStorm\EnvironmentInterface;
+use Youwe\CodingStandard\PhpStorm\Patcher\ConfigPatcherInterface;
 use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_TestCase;
-use Mediact\CodingStandard\PhpStorm\Patcher\ConfigPatcher;
+use Youwe\CodingStandard\PhpStorm\Patcher\ConfigPatcher;
 
 /**
- * @coversDefaultClass \Mediact\CodingStandard\PhpStorm\Patcher\ConfigPatcher
+ * @coversDefaultClass \Youwe\CodingStandard\PhpStorm\Patcher\ConfigPatcher
  */
 class ConfigPatcherTest extends TestCase
 {

@@ -1,22 +1,24 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.com
  */
 
-namespace Mediact\CodingStandard\PhpStorm\Tests\Patcher;
+declare(strict_types=1);
 
-use Mediact\CodingStandard\PhpStorm\EnvironmentInterface;
-use Mediact\CodingStandard\PhpStorm\FilesystemInterface;
-use Mediact\CodingStandard\PhpStorm\Patcher\InspectionsPatcher;
-use Mediact\CodingStandard\PhpStorm\XmlAccessorInterface;
+namespace Youwe\CodingStandard\PhpStorm\Tests\Patcher;
+
+use Youwe\CodingStandard\PhpStorm\EnvironmentInterface;
+use Youwe\CodingStandard\PhpStorm\FilesystemInterface;
+use Youwe\CodingStandard\PhpStorm\Patcher\InspectionsPatcher;
+use Youwe\CodingStandard\PhpStorm\XmlAccessorInterface;
 use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_TestCase;
 use SimpleXMLElement;
 
 /**
- * @coversDefaultClass \Mediact\CodingStandard\PhpStorm\Patcher\InspectionsPatcher
+ * @coversDefaultClass \Youwe\CodingStandard\PhpStorm\Patcher\InspectionsPatcher
  */
 class InspectionsPatcherTest extends TestCase
 {
