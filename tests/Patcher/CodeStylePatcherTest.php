@@ -1,20 +1,22 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.com
  */
 
-namespace Mediact\CodingStandard\PhpStorm\Tests\Patcher;
+declare(strict_types=1);
 
-use Mediact\CodingStandard\PhpStorm\EnvironmentInterface;
-use Mediact\CodingStandard\PhpStorm\FilesystemInterface;
+namespace Youwe\CodingStandard\PhpStorm\Tests\Patcher;
+
+use Youwe\CodingStandard\PhpStorm\EnvironmentInterface;
+use Youwe\CodingStandard\PhpStorm\FilesystemInterface;
 use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_TestCase;
-use Mediact\CodingStandard\PhpStorm\Patcher\CodeStylePatcher;
+use Youwe\CodingStandard\PhpStorm\Patcher\CodeStylePatcher;
 
 /**
- * @coversDefaultClass \Mediact\CodingStandard\PhpStorm\Patcher\CodeStylePatcher
+ * @coversDefaultClass \Youwe\CodingStandard\PhpStorm\Patcher\CodeStylePatcher
  */
 class CodeStylePatcherTest extends TestCase
 {

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.com
  */
 
 declare(strict_types=1);
 
-namespace Mediact\CodingStandard\PhpStorm;
+namespace Youwe\CodingStandard\PhpStorm;
 
 use Composer\Composer;
 use Composer\EventDispatcher\EventSubscriberInterface;
@@ -15,15 +15,15 @@ use Composer\IO\IOInterface;
 use Composer\Plugin\PluginInterface;
 use Composer\Script\Event;
 use Composer\Script\ScriptEvents;
-use Mediact\CodingStandard\PhpStorm\Patcher\ConfigPatcher;
-use Mediact\CodingStandard\PhpStorm\Patcher\ConfigPatcherInterface;
+use Youwe\CodingStandard\PhpStorm\Patcher\ConfigPatcher;
+use Youwe\CodingStandard\PhpStorm\Patcher\ConfigPatcherInterface;
 
 /**
  * This class is deprecated because this class has an extra argument.
  *
  * @deprecated
  * Class Plugin
- * @package Mediact\CodingStandard\PhpStorm
+ * @package Youwe\CodingStandard\PhpStorm
  */
 class Plugin implements PluginInterface, EventSubscriberInterface
 {

@@ -1,12 +1,12 @@
 {
-    "name": "mediact/coding-standard-phpstorm",
-    "description": "MediaCT PHP Coding Standard PHPStorm integration",
+    "name": "youwe/coding-standard-phpstorm",
+    "description": "Youwe PHP Coding Standard PHPStorm integration",
     "type": "composer-plugin",
     "license": "MIT",
     "authors": [
         {
-            "name": "MediaCT",
-            "email": "contact@mediact.nl"
+            "name": "Youwe",
+            "email": "support@youweagency.com"
         }
     ],
     "require": {
@@ -15,25 +15,33 @@
     },
     "require-dev": {
         "mediact/testing-suite": "@stable",
-        "composer/composer": "^1.3 || ^2.0",
         "kint-php/kint": "@stable",
-        "mediact/coding-standard": "@stable",
-        "phpstan/phpstan": "@stable",
+        "youwe/coding-standard": "dev-master",
         "mikey179/vfsstream": "^1.6",
         "ext-simplexml": "*"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/YouweGit/coding-standard"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/YouweGit/testing-suite"
+        }
+    ],
     "autoload": {
         "psr-4": {
-            "Mediact\\CodingStandard\\PhpStorm\\": "src"
+            "Youwe\\CodingStandard\\PhpStorm\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Mediact\\CodingStandard\\PhpStorm\\Tests\\": "tests"
+            "Youwe\\CodingStandard\\PhpStorm\\Tests\\": "tests"
         }
     },
     "extra": {
-        "class": "Mediact\\CodingStandard\\PhpStorm\\InstallerPlugin"
+        "class": "Youwe\\CodingStandard\\PhpStorm\\InstallerPlugin"
     },
     "archive": {
         "exclude": [

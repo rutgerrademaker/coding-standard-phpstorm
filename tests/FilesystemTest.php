@@ -1,20 +1,22 @@
 <?php
 
 /**
- * Copyright MediaCT. All rights reserved.
- * https://www.mediact.nl
+ * Copyright Youwe. All rights reserved.
+ * https://www.youweagency.com
  */
 
-namespace Mediact\CodingStandard\PhpStorm\Tests;
+declare(strict_types=1);
+
+namespace Youwe\CodingStandard\PhpStorm\Tests;
 
 use org\bovigo\vfs\vfsStream;
 use org\bovigo\vfs\vfsStreamDirectory;
 use PHPUnit\Framework\TestCase;
-use Mediact\CodingStandard\PhpStorm\Filesystem;
+use Youwe\CodingStandard\PhpStorm\Filesystem;
 use RuntimeException;
 
 /**
- * @coversDefaultClass \Mediact\CodingStandard\PhpStorm\Filesystem
+ * @coversDefaultClass \Youwe\CodingStandard\PhpStorm\Filesystem
  * @SuppressWarnings(PHPMD)
  */
 class FilesystemTest extends TestCase
