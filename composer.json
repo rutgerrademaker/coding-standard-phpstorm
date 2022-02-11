@@ -3,10 +3,12 @@
     "description": "Youwe PHP Coding Standard PHPStorm integration",
     "type": "composer-plugin",
     "license": "MIT",
+    "prefer-stable": true,
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Youwe",
-            "email": "support@youweagency.com"
+            "email": "info@youweagency.com"
         }
     ],
     "require": {
@@ -14,11 +16,10 @@
         "composer-plugin-api": "^1.0 || ^2.0"
     },
     "require-dev": {
-        "mediact/testing-suite": "@stable",
+        "ext-simplexml": "*",
         "kint-php/kint": "@stable",
-        "mediact/coding-standard": "dev-feature/OTPBBBBBZP-117",
         "mikey179/vfsstream": "^1.6",
-        "ext-simplexml": "*"
+        "youwe/testing-suite": "dev-master"
     },
     "repositories": [
         {
@@ -28,6 +29,22 @@
         {
             "type": "vcs",
             "url": "https://github.com/YouweGit/testing-suite"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/YouweGit/coding-standard-phpstorm"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/YouweGit/composer-dependency-installer"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/YouweGit/composer-file-installer"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/YouweGit/file-mapping"
         }
     ],
     "autoload": {

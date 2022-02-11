@@ -1,5 +1,5 @@
 imports:
-  - resource: 'vendor/mediact/testing-suite/config/default/grumphp.yml'
+  - resource: 'vendor/youwe/testing-suite/config/default/grumphp.yml'
 parameters:
   phplint.ignore_patterns:
     - /^files/
