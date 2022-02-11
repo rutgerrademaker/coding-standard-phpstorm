@@ -16,7 +16,7 @@
     "require-dev": {
         "mediact/testing-suite": "@stable",
         "kint-php/kint": "@stable",
-        "mediact/coding-standard": "dev-feature/OTPBBBBBZP-117",
+        "youwe/coding-standard": "dev-master",
         "mikey179/vfsstream": "^1.6",
         "ext-simplexml": "*"
     },
