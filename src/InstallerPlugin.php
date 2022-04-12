@@ -110,7 +110,8 @@ class InstallerPlugin implements PluginInterface, EventSubscriberInterface
                     new Filesystem($filesDir),
                     new Filesystem($projectDir),
                     $event->getIO(),
-                    $event->getComposer()
+                    $event->getComposer(),
+                    new ProjectTypeResolver($event->getComposer())
                 )
             );
 

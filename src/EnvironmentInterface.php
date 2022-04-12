@@ -55,4 +55,11 @@ interface EnvironmentInterface
      * @return Composer
      */
     public function getComposer(): Composer;
+
+    /**
+     * Get composer project type resolver.
+     *
+     * @return ProjectTypeResolver
+     */
+    public function getProjectTypeResolver(): ProjectTypeResolver;
 }

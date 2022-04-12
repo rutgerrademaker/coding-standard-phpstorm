@@ -38,6 +38,8 @@ class Environment implements EnvironmentInterface
      * @var Composer
      */
     private $composer;
+    /** @var ProjectTypeResolver */
+    private $projectTypeResolver;
 
     /**
      * Constructor.
@@ -55,7 +57,8 @@ class Environment implements EnvironmentInterface
         FilesystemInterface $defaultsFilesystem,
         FilesystemInterface $projectFilesystem,
         IOInterface $inputOutput,
-        Composer $composer
+        Composer $composer,
+        ProjectTypeResolver $projectTypeResolver
     ) {
         $this->ideConfigFilesystem  = $ideConfigFilesystem;
         $this->ideDefaultFilesystem = $ideDefaultFileSystem;
@@ -63,6 +66,7 @@ class Environment implements EnvironmentInterface
         $this->projectFilesystem    = $projectFilesystem;
         $this->inputOutput          = $inputOutput;
         $this->composer             = $composer;
+        $this->projectTypeResolver  = $projectTypeResolver;
     }
 
     /**
@@ -123,5 +127,15 @@ class Environment implements EnvironmentInterface
     public function getComposer(): Composer
     {
         return $this->composer;
+    }
+
+    /**
+     * Get project type resolver.
+     *
+     * @return ProjectTypeResolver
+     */
+    public function getProjectTypeResolver(): ProjectTypeResolver
+    {
+        return $this->projectTypeResolver;
     }
 }

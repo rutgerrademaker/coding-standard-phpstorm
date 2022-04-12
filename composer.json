@@ -16,6 +16,7 @@
         "composer-plugin-api": "^1.0 || ^2.0"
     },
     "require-dev": {
+        "composer/composer": "@stable",
         "ext-simplexml": "*",
         "kint-php/kint": "@stable",
         "mikey179/vfsstream": "^1.6"

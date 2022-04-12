@@ -7,10 +7,11 @@
 
 declare(strict_types=1);
 
-namespace Youwe\CodingStandard\PhpStorm\Patcher;
+namespace Youwe\CodingStandard\PhpStorm\Patcher\Magento2;
 
 use Youwe\CodingStandard\PhpStorm\EnvironmentInterface;
-use Youwe\CodingStandard\PhpStorm\FilesystemInterface;
+use Youwe\CodingStandard\PhpStorm\Patcher\ConfigPatcherInterface;
+use Youwe\CodingStandard\PhpStorm\Patcher\CopyFilesTrait;
 use Youwe\CodingStandard\PhpStorm\XmlAccessorInterface;
 
 class TemplateSettingsPatcher implements ConfigPatcherInterface
@@ -70,15 +71,16 @@ class TemplateSettingsPatcher implements ConfigPatcherInterface
     public function patchFileTemplateSettings(
         EnvironmentInterface $environment
     ): void {
-        if (!$environment->getIdeConfigFilesystem()->has('file.template.settings.xml')) {
+        $path = $environment->getProjectTypeResolver()->resolve() . DIRECTORY_SEPARATOR . 'file.template.settings.xml';
+        if (!$environment->getIdeConfigFilesystem()->has($path)) {
             $this->copyFile(
                 $environment->getDefaultsFilesystem(),
                 $environment->getIdeConfigFilesystem(),
-                'file.template.settings.xml'
+                $path
             );
         } else {
             $xml = simplexml_load_string(
-                $environment->getIdeConfigFilesystem()->read('file.template.settings.xml')
+                $environment->getIdeConfigFilesystem()->read($path)
             );
 
             foreach ($this->getFileTemplates() as $xmlTag => $fileTemplateNames) {
@@ -101,7 +103,7 @@ class TemplateSettingsPatcher implements ConfigPatcherInterface
                             'live-template-enabled' => 'true'
                         ]
                     );
-                    $environment->getIdeConfigFilesystem()->put('file.template.settings.xml', $xml->asXML());
+                    $environment->getIdeConfigFilesystem()->put($path, $xml->asXML());
                 }
             }
         }
@@ -120,7 +122,9 @@ class TemplateSettingsPatcher implements ConfigPatcherInterface
             if (!$environment->getIdeConfigFilesystem()->has("fileTemplates/includes/$fileName")) {
                 $environment->getIdeConfigFilesystem()->put(
                     "fileTemplates/includes/$fileName",
-                    $environment->getDefaultsFilesystem()->read("includes/$fileName")
+                    $environment->getDefaultsFilesystem()->read(
+                        $environment->getProjectTypeResolver()->resolve(). DIRECTORY_SEPARATOR ."includes/$fileName"
+                    )
                 );
             }
         }

@@ -48,7 +48,7 @@ class InspectionsPatcher implements ConfigPatcherInterface
         $this->copyDirectory(
             $environment->getDefaultsFilesystem(),
             $environment->getIdeConfigFilesystem(),
-            'inspectionProfiles'
+            'default/inspectionProfiles'
         );
 
         $this->setProjectProfiles($environment);

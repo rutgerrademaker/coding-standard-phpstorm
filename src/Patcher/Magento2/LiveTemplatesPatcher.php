@@ -7,10 +7,11 @@
 
 declare(strict_types=1);
 
-namespace Youwe\CodingStandard\PhpStorm\Patcher;
+namespace Youwe\CodingStandard\PhpStorm\Patcher\Magento2;
 
 use Youwe\CodingStandard\PhpStorm\EnvironmentInterface;
-use Youwe\CodingStandard\PhpStorm\FilesystemInterface;
+use Youwe\CodingStandard\PhpStorm\Patcher\ConfigPatcherInterface;
+use Youwe\CodingStandard\PhpStorm\Patcher\CopyFilesTrait;
 
 class LiveTemplatesPatcher implements ConfigPatcherInterface
 {
@@ -26,11 +27,12 @@ class LiveTemplatesPatcher implements ConfigPatcherInterface
     public function patch(
         EnvironmentInterface $environment
     ): void {
-        if (! empty($environment->getIdeDefaultConfigFilesystem()->getRoot())) {
+
+        if (!empty($environment->getIdeDefaultConfigFilesystem()->getRoot())) {
             $this->copyDirectory(
                 $environment->getDefaultsFilesystem(),
                 $environment->getIdeDefaultConfigFilesystem(),
-                'templates'
+                $environment->getProjectTypeResolver()->resolve() . DIRECTORY_SEPARATOR . 'templates'
             );
         }
     }

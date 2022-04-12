@@ -10,6 +10,9 @@ declare(strict_types=1);
 namespace Youwe\CodingStandard\PhpStorm\Patcher;
 
 use Youwe\CodingStandard\PhpStorm\EnvironmentInterface;
+use Youwe\CodingStandard\PhpStorm\Patcher\Magento2\FileTemplatesPatcher as FileTemplatesPatcherMagento2;
+use Youwe\CodingStandard\PhpStorm\Patcher\Magento2\LiveTemplatesPatcher;
+use Youwe\CodingStandard\PhpStorm\Patcher\Magento2\TemplateSettingsPatcher;
 use Youwe\CodingStandard\PhpStorm\XmlAccessor;
 
 class ConfigPatcher implements ConfigPatcherInterface
@@ -31,11 +34,16 @@ class ConfigPatcher implements ConfigPatcherInterface
         $this->patchers = $patchers !== null
             ? $patchers
             : [
-                new CodeStylePatcher(),
-                new FileTemplatesPatcher($xmlAccessor),
-                new InspectionsPatcher($xmlAccessor),
-                new TemplateSettingsPatcher($xmlAccessor),
-                new LiveTemplatesPatcher()
+                'default' => [
+                    new CodeStylePatcher(),
+                    new FileTemplatesPatcher($xmlAccessor),
+                    new InspectionsPatcher($xmlAccessor)
+                ],
+                'magento2' => [
+                    new FileTemplatesPatcherMagento2(),
+                    new TemplateSettingsPatcher($xmlAccessor),
+                    new LiveTemplatesPatcher()
+                ]
             ];
     }
 
@@ -49,8 +57,16 @@ class ConfigPatcher implements ConfigPatcherInterface
     public function patch(
         EnvironmentInterface $environment
     ): void {
-        foreach ($this->patchers as $patcher) {
-            $patcher->patch($environment);
+        foreach ($this->patchers as $projectType => $patcher) {
+            if ($environment->getProjectTypeResolver()->resolve() === $projectType) {
+                $patcher->patch($environment);
+            } elseif ($projectType === 'default') {
+                /**
+                 * Patches that are default are configured for all projects.
+                 * TODO:: Add function to overwrite default patches.
+                 **/
+                $patcher->patch($environment);
+            }
         }
     }
 }
