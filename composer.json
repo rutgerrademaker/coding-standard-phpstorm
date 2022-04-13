@@ -4,7 +4,7 @@
     "type": "composer-plugin",
     "license": "MIT",
     "prefer-stable": true,
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Youwe B.V.",
@@ -19,12 +19,16 @@
         "composer/composer": "@stable",
         "ext-simplexml": "*",
         "kint-php/kint": "@stable",
-        "mikey179/vfsstream": "^1.6"
+        "mikey179/vfsstream": "^1.6",
+        "phpunit/phpunit": "@stable"
     },
     "autoload": {
         "psr-4": {
             "Youwe\\CodingStandard\\PhpStorm\\": "src"
         }
+    },
+    "replace": {
+        "youwe/coding-standard-phpstorm": "*"
     },
     "autoload-dev": {
         "psr-4": {

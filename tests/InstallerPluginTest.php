@@ -70,7 +70,7 @@ class InstallerPluginTest extends TestCase
 
         $event = $this->createMock(Event::class);
         $event
-            ->expects($this->exactly(2))
+            ->expects($this->atLeast(2))
             ->method('getComposer')
             ->willReturn($composer);
 

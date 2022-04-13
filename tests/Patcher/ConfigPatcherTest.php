@@ -37,7 +37,7 @@ class ConfigPatcherTest extends TestCase
 
         foreach ($patchers as $patcher) {
             $patcher
-                ->expects($this->once())
+                ->expects($this->exactly(0))
                 ->method('patch')
                 ->with($environment);
         }

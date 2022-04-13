@@ -14,6 +14,7 @@ use Composer\IO\IOInterface;
 use Youwe\CodingStandard\PhpStorm\FilesystemInterface;
 use PHPUnit\Framework\TestCase;
 use Youwe\CodingStandard\PhpStorm\Environment;
+use Youwe\CodingStandard\PhpStorm\ProjectTypeResolver;
 
 /**
  * @coversDefaultClass \Youwe\CodingStandard\PhpStorm\Environment
@@ -37,6 +38,7 @@ class EnvironmentTest extends TestCase
         $projectFs    = $this->createMock(FilesystemInterface::class);
         $inputOutput  = $this->createMock(IOInterface::class);
         $composer     = $this->createMock(Composer::class);
+        $projectTypeResolver = $this->createMock(ProjectTypeResolver::class);
 
         $environment = new Environment(
             $ideConfigFs,
@@ -44,7 +46,8 @@ class EnvironmentTest extends TestCase
             $defaultsFs,
             $projectFs,
             $inputOutput,
-            $composer
+            $composer,
+            $projectTypeResolver
         );
 
         $this->assertSame($ideConfigFs, $environment->getIdeConfigFilesystem());
@@ -53,5 +56,6 @@ class EnvironmentTest extends TestCase
         $this->assertSame($projectFs, $environment->getProjectFilesystem());
         $this->assertSame($inputOutput, $environment->getInputOutput());
         $this->assertSame($composer, $environment->getComposer());
+        $this->assertSame($projectTypeResolver, $environment->getProjectTypeResolver());
     }
 }

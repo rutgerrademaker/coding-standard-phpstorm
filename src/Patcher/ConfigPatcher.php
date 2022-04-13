@@ -18,7 +18,7 @@ use Youwe\CodingStandard\PhpStorm\XmlAccessor;
 class ConfigPatcher implements ConfigPatcherInterface
 {
     /**
-     * @var ConfigPatcherInterface[]
+     * @var array
      */
     private $patchers;
 
@@ -57,15 +57,17 @@ class ConfigPatcher implements ConfigPatcherInterface
     public function patch(
         EnvironmentInterface $environment
     ): void {
-        foreach ($this->patchers as $projectType => $patcher) {
-            if ($environment->getProjectTypeResolver()->resolve() === $projectType) {
-                $patcher->patch($environment);
-            } elseif ($projectType === 'default') {
-                /**
-                 * Patches that are default are configured for all projects.
-                 * TODO:: Add function to overwrite default patches.
-                 **/
-                $patcher->patch($environment);
+        foreach ($this->patchers as $projectType => $patchers) {
+            foreach ($patchers as $patcher) {
+                if ($environment->getProjectTypeResolver()->resolve() === $projectType) {
+                    $patcher->patch($environment);
+                } elseif ($projectType === 'default') {
+                    /**
+                     * Patches that are default are configured for all projects.
+                     * TODO:: Add function to overwrite default patches.
+                     **/
+                    $patcher->patch($environment);
+                }
             }
         }
     }
