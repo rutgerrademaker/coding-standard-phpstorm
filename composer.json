@@ -4,7 +4,7 @@
     "type": "composer-plugin",
     "license": "MIT",
     "prefer-stable": true,
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "authors": [
         {
             "name": "Youwe B.V.",
@@ -26,9 +26,6 @@
         "psr-4": {
             "Youwe\\CodingStandard\\PhpStorm\\": "src"
         }
-    },
-    "replace": {
-        "youwe/coding-standard-phpstorm": "*"
     },
     "autoload-dev": {
         "psr-4": {
