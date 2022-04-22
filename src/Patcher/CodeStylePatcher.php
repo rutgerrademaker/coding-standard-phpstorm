@@ -28,7 +28,7 @@ class CodeStylePatcher implements ConfigPatcherInterface
         $this->copyFile(
             $environment->getDefaultsFilesystem(),
             $environment->getIdeConfigFilesystem(),
-            'codeStyleSettings.xml'
+             'codeStyleSettings.xml'
         );
     }
 }

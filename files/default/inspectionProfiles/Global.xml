@@ -1,6 +1,6 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
-    <option name="myName" value="Youwe" />
+    <option name="myName" value="Global" />
     <inspection_tool class="AmdModulesDependencies" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="BadExpressionStatementJS" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="BladeControlDirectives" enabled="false" level="WARNING" enabled_by_default="false" />

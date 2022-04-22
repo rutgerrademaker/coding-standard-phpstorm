@@ -31,13 +31,13 @@ class CodeStylePatcherTest extends TestCase
         $ideConfigFs
             ->expects($this->once())
             ->method('put')
-            ->with('codeStyleSettings.xml', '<xml/>');
+            ->with('default/codeStyleSettings.xml', '<xml/>');
 
         $defaultsFs = $this->createMock(FilesystemInterface::class);
         $defaultsFs
             ->expects($this->once())
             ->method('read')
-            ->with('codeStyleSettings.xml')
+            ->with('default/codeStyleSettings.xml')
             ->willReturn('<xml/>');
 
         $environment = $this->createConfiguredMock(

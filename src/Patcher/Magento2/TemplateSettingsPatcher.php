@@ -71,12 +71,13 @@ class TemplateSettingsPatcher implements ConfigPatcherInterface
     public function patchFileTemplateSettings(
         EnvironmentInterface $environment
     ): void {
-        $path = $environment->getProjectTypeResolver()->resolve() . DIRECTORY_SEPARATOR . 'file.template.settings.xml';
+        $path = 'file.template.settings.xml';
         if (!$environment->getIdeConfigFilesystem()->has($path)) {
             $this->copyFile(
                 $environment->getDefaultsFilesystem(),
                 $environment->getIdeConfigFilesystem(),
-                $path
+                $path,
+                $environment->getProjectTypeResolver()->resolve()
             );
         } else {
             $xml = simplexml_load_string(

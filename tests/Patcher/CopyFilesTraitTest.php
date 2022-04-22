@@ -33,15 +33,15 @@ class CopyFilesTraitTest extends TestCase
             ->expects($this->exactly(2))
             ->method('put')
             ->withConsecutive(
-                ['foo/foo.xml', '<foo/>'],
-                ['foo/bar.xml', '<bar/>']
+                ['default/foo/foo.xml', '<foo/>'],
+                ['default/foo/bar.xml', '<bar/>']
             );
 
         $source = $this->createMock(FilesystemInterface::class);
         $source
             ->expects($this->once())
             ->method('listFiles')
-            ->with('foo')
+            ->with('default/foo')
             ->willReturn(
                 [
                     'foo/foo.xml',
@@ -54,8 +54,8 @@ class CopyFilesTraitTest extends TestCase
             ->method('read')
             ->willReturnMap(
                 [
-                    ['foo/foo.xml', '<foo/>'],
-                    ['foo/bar.xml', '<bar/>']
+                    ['default/foo/foo.xml', '<foo/>'],
+                    ['default/foo/bar.xml', '<bar/>']
                 ]
             );
 

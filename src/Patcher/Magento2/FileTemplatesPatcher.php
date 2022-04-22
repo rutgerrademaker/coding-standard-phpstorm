@@ -30,7 +30,8 @@ class FileTemplatesPatcher implements ConfigPatcherInterface
         $this->copyDirectory(
             $environment->getDefaultsFilesystem(),
             $environment->getIdeConfigFilesystem(),
-            $environment->getProjectTypeResolver()->resolve() . DIRECTORY_SEPARATOR . 'fileTemplates'
+            DIRECTORY_SEPARATOR . 'fileTemplates',
+            $environment->getProjectTypeResolver()->resolve()
         );
     }
 }

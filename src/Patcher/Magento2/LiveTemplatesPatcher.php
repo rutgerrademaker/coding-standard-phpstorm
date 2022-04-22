@@ -32,7 +32,8 @@ class LiveTemplatesPatcher implements ConfigPatcherInterface
             $this->copyDirectory(
                 $environment->getDefaultsFilesystem(),
                 $environment->getIdeDefaultConfigFilesystem(),
-                $environment->getProjectTypeResolver()->resolve() . DIRECTORY_SEPARATOR . 'templates'
+                'templates',
+                $environment->getProjectTypeResolver()->resolve()
             );
         }
     }

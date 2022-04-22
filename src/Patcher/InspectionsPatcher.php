@@ -18,7 +18,7 @@ class InspectionsPatcher implements ConfigPatcherInterface
     use CopyFilesTrait;
 
     public const PROJECT_PHPCS      = 'phpcs.xml';
-    public const INSPECTION_PROFILE = 'default/inspectionProfiles/Global.xml';
+    public const INSPECTION_PROFILE = 'inspectionProfiles/Global.xml';
 
     /**
      * @var XmlAccessorInterface
